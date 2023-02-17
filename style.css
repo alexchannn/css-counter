@@ -1,0 +1,77 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   min-height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: #ffffff;
+}
+
+input[type='checkbox']{
+   display: none;
+}
+
+main {
+   display: flex;
+   gap: 1rem; /*16px*/
+
+   counter-reset: css-counter 0;
+
+   position: relative;
+}
+
+main::after {
+   content: "Increment Number: " counter(css-counter);
+   
+   position: absolute;
+   bottom: -3.5rem;
+   font-size: 1rem;
+}
+
+.box label {
+   outline: 1px solid black;
+   padding: 2rem;
+   cursor: pointer;
+}
+
+.box input:hover + label {
+   border-radius: 10px;
+   transition: 0.3s;
+}
+
+.box input:checked + label {
+   outline: 1px solid black;
+   background-color: aqua;
+   transition: 0.3s;
+   border-radius: 10px;
+}
+
+.box:has(input:checked + label[data-value='10']) {
+   counter-increment:  css-counter 10;
+}
+.box:has(input:checked + label[data-value='60']) {
+   counter-increment:  css-counter 60;
+}
+.box:has(input:checked + label[data-value='43']) {
+   counter-increment:  css-counter 43;
+}
+.box:has(input:checked + label[data-value='-15']) {
+   counter-increment:  css-counter -15;
+}
+.box:has(input:checked + label[data-value='69']) {
+   counter-increment:  css-counter 69;
+}
+.box:has(input:checked + label[data-value='-52']) {
+   counter-increment:  css-counter -52;
+}
+.box:has(input:checked + label[data-value='13']) {
+   counter-increment:  css-counter 13;
+}
+.box:has(input:checked + label[data-value='79']) {
+   counter-increment:  css-counter 79;
+}
